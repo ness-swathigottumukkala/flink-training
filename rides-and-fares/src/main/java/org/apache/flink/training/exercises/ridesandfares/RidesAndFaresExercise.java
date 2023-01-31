@@ -101,8 +101,10 @@ public class RidesAndFaresExercise {
     public static class EnrichmentFunction
             extends RichCoFlatMapFunction<TaxiRide, TaxiFare, RideAndFare> {
 
-        private ValueState<TaxiRide> rideState;
-        private ValueState<TaxiFare> fareState;
+        private static final long serialVersionUID = -17876090998629897L;
+
+        private transient ValueState<TaxiRide> rideState;
+        private transient ValueState<TaxiFare> fareState;
 
         @Override
         public void open(Configuration config) throws Exception {
